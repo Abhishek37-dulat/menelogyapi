@@ -48,6 +48,7 @@ const SingleProduct = async (req, res, next) => {
 };
 
 const StoreProduct = async (req, res, next) => {
+  console.log(req.body);
   try {
     console.log("h1");
     const {
@@ -79,7 +80,6 @@ const StoreProduct = async (req, res, next) => {
       !product_description ||
       !product_categories ||
       !product_price ||
-      !product_discount ||
       !product_qty ||
       product_image.length <= 0 ||
       product_length <= 0.5 ||
