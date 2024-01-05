@@ -4,7 +4,6 @@ const cloudinary = require("../database/cloudinary.js");
 const GetAllPost = async (req, res, next) => {
   try {
     const data = await Post.find({});
-
     return res
       .status(200)
       .json({ msg: "GetPostData Successfully!", data: data });
@@ -62,6 +61,7 @@ const AddNewPost = async (req, res, next) => {
         .json({ msg: "PostBannerData Successfully!", data: data });
     }
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ msg: "PostBannerData Error!", error });
   }
 };
