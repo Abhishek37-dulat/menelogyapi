@@ -41,14 +41,6 @@ app.use(cors());
 let endpointSecret;
 endpointSecret = process.env.WEB_HOOK_SECRET;
 
-// Serve the React app
-app.use(express.static(path.join(__dirname, "client/build")));
-
-// Handle other routes by serving index.html
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
-});
-
 app.post("/webhook", express.raw({ type: "application/json" }), (req, res) => {
   const sig = req.headers["stripe-signature"];
 
